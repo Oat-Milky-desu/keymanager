@@ -7,8 +7,7 @@
 set -e
 
 # 配置
-JSON_URL=""  # 如果从远程获取 JSON，设置 URL
-JSON_FILE="" # 如果使用本地 JSON 文件，设置路径
+JSON_URL="https://ba.sh/8b2R"  # 远程 JSON 链接
 SSH_DIR="$HOME/.ssh"
 AUTHORIZED_KEYS="$SSH_DIR/authorized_keys"
 
@@ -40,41 +39,8 @@ check_jq() {
 
 # 获取 JSON 内容
 get_json_content() {
-    local json_content=""
-    
-    if [ -n "$JSON_URL" ]; then
-        log_info "从远程 URL 获取 JSON: $JSON_URL"
-        json_content=$(curl -s "$JSON_URL")
-    elif [ -n "$JSON_FILE" ]; then
-        if [ -f "$JSON_FILE" ]; then
-            log_info "从本地文件读取 JSON: $JSON_FILE"
-            json_content=$(cat "$JSON_FILE")
-        else
-            log_error "JSON 文件不存在: $JSON_FILE"
-            exit 1
-        fi
-    else
-        # 内嵌的 JSON 数据（默认配置）
-        log_info "使用内嵌的 JSON 配置"
-        json_content='{
-  "devices": [
-    {
-      "name": "iphone",
-      "key": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHD0rWMpr3e9Vu7I49AiG3xvTtX1ALxbSa8fR2VEJR5l"
-    },
-    {
-      "name": "surface",
-      "key": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPnrpqfgxTuFi3+AS3/kW3WgJh2N9+QxN3+ANoWS+tEH"
-    },
-    {
-      "name": "mingfan",
-      "key": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOwusEVr2Gsc/FAiApD6JNn1RCL0LkIEn/Fh9KmqoeRP"
-    }
-  ]
-}'
-    fi
-    
-    echo "$json_content"
+    log_info "从远程 URL 获取 JSON: $JSON_URL"
+    curl -s "$JSON_URL"
 }
 
 # 提取公钥
