@@ -1,0 +1,16 @@
+{
+  "devices": [
+    {
+      "name": "iphone",
+      "key": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHD0rWMpr3e9Vu7I49AiG3xvTtX1ALxbSa8fR2VEJR5l"
+    },
+    {
+      "name": "surface",
+      "key": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPnrpqfgxTuFi3+AS3/kW3WgJh2N9+QxN3+ANoWS+tEH"
+    },
+    {
+      "name": "mingfan",
+      "key": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOwusEVr2Gsc/FAiApD6JNn1RCL0LkIEn/Fh9KmqoeRP"
+    }
+  ]
+}
