@@ -39,7 +39,7 @@ check_jq() {
 
 # 获取 JSON 内容
 get_json_content() {
-    log_info "从远程 URL 获取 JSON: $JSON_URL"
+    log_info "从远程 URL 获取 JSON: $JSON_URL" >&2
     curl -sL "$JSON_URL"
 }
 
