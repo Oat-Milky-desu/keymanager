@@ -145,8 +145,8 @@ main() {
     log_info "更新前的状态:"
     show_current_keys
     
-    # 询问用户确认
-    read -p "是否继续更新 authorized_keys? (y/n): " confirm
+    # 询问用户确认（从 /dev/tty 读取以支持 curl | bash 方式运行）
+    read -p "是否继续更新 authorized_keys? (y/n): " confirm < /dev/tty
     if [ "$confirm" != "y" ] && [ "$confirm" != "Y" ]; then
         log_info "操作已取消"
         exit 0
