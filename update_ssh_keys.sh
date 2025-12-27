@@ -133,6 +133,8 @@ main() {
     # 验证 JSON 格式
     if ! echo "$json_content" | jq empty 2>/dev/null; then
         log_error "JSON 格式无效"
+        log_error "获取到的内容如下："
+        echo "$json_content"
         exit 1
     fi
     
