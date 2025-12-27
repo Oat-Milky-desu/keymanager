@@ -79,7 +79,7 @@ update_authorized_keys() {
     while IFS= read -r key; do
         if [ -n "$key" ]; then
             echo "$key" >> "$AUTHORIZED_KEYS"
-            ((key_count++))
+            key_count=$((key_count + 1))
         fi
     done <<< "$(extract_keys "$json_content")"
     
